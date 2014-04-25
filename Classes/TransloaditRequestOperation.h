@@ -10,6 +10,16 @@
 
 @interface TransloaditRequestOperation : AFHTTPRequestOperation
 
-- (instancetype)initWithKey:(NSString*)key withTemplateId:(NSString*)templateId withData:(NSData*)data withMimeType:(NSString*)mimeType;
+// Assembly
++ (instancetype)assemblyGET:(NSString*)urll;
++ (instancetype)assemblyGET:(NSString*)url withPollInterval:(NSInteger)pollInterval withMaxTries:(NSInteger)maxTries;
+
++ (instancetype)assemblyPOST:(NSString*)key withTemplateId:(NSString*)templateId withData:(NSData*)data withMimeType:(NSString*)mimeType;
+
+@end
+
+@interface TransloaditPollRequestOperation : TransloaditRequestOperation
+
+- (void)setPollInterval:(NSInteger)pollInterval withMaxTries:(NSInteger)maxTries;
 
 @end
